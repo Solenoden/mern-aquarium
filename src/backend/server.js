@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 5000;
 
 require("dotenv").config();
 
@@ -24,7 +25,15 @@ app.use("/fish", fishRouter);
 const userRouter = require("./routes/users");
 app.use("/user", userRouter);
 
+if(process.env.NODE_ENV === "production") {
+    app.use("../../build");
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "build", "index.html"));
+    });
+}
+
 //Configure server to run on a certain port
-app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+app.listen(port, () => {
+    console.log("Server is running on port " + port);
 });

@@ -5,7 +5,7 @@ import axios from "axios";
 export default class Header extends React.Component {
     logout = async () => {
         try {
-            await axios.post("http://localhost:5000/user/logout", {},{headers: {Authorization: localStorage.getItem("token")}});
+            await axios.post("/user/logout", {},{headers: {Authorization: localStorage.getItem("token")}});
             this.props.logoutUser();
         } catch (e) {
             console.log(e);

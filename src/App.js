@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   getFishes = () => {
-    axios.get("http://localhost:5000/fish/")
+    axios.get("/fish/")
     .then((res) => {
       this.setState({fishes: res.data});
       this.setState({currFishId: this.state.fishes[0]._id});
