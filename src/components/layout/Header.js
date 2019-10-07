@@ -5,7 +5,7 @@ import axios from "axios";
 export default class Header extends React.Component {
     logout = async () => {
         try {
-            await axios.post("/user/logout", {},{headers: {Authorization: localStorage.getItem("token")}});
+            await axios.post("http://localhost:5000/user/logout", {},{headers: {Authorization: localStorage.getItem("token")}});
             this.props.logoutUser();
         } catch (e) {
             console.log(e);
@@ -14,9 +14,9 @@ export default class Header extends React.Component {
 
     renderLoginStatus() {
         if(this.props.loggedInUser) {
-            return <button className="btn btn-primary my-auto h-70" type="button" onClick={this.logout}>Logout</button>
+            return <button className="btn btn-primary my-auto" type="button" style={{height: "90%", backgroundColor: "#DB6C0F", borderWidth: "0"}} onClick={this.logout}>Logout</button>
         } else {
-            return <Link to="/login"><button className="btn btn-primary" type="button">Login</button></Link>
+            return <Link to="/login"><button className="btn btn-primary my-auto h-70" style={{height: "90%", backgroundColor: "#DB6C0F", borderWidth: "0"}} type="button">Login</button></Link>
         }
     }
 
@@ -44,7 +44,7 @@ export default class Header extends React.Component {
 
 
 const headerStyle = {
-    backgroundColor: "#0D1F30",
+    backgroundColor: "#001E30",
     color: "#fff",
     textAlign: "center",
     // height: "fit-content",

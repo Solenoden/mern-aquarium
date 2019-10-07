@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   getFishes = () => {
-    axios.get("/fish/")
+    axios.get("http://localhost:5000/fish/")
     .then((res) => {
       this.setState({fishes: res.data});
       this.setState({currFishId: this.state.fishes[0]._id});
@@ -244,9 +244,9 @@ class App extends Component {
         <Route exact path="/fish" component={props => (
           <React.Fragment>
             <Header loggedInUser={this.state.user} logoutUser={this.logoutUser}/>
-            <div className="sidebar" style={{float: "left", backgroundColor: "#3B6670", overflowY: "scroll", height: "86vh"}}>
-                <div style={{height: "80vh"}}><FishList fishes={this.state.fishes} displayFishInfo={this.displayFishInfo} /></div>
-                <Link to="/fish/add" style={{textDecoration: "none"}}><button id="addFishBtn" className="btn btn-success btn-block rounded-0" style={{height: "6vh"}}>New Fish</button></Link>
+            <div className="sidebar" style={{float: "left", backgroundColor: "#0D1F30", overflowY: "scroll", height: "88vh"}}>
+                <div style={{height: "82vh"}}><FishList fishes={this.state.fishes} displayFishInfo={this.displayFishInfo} /></div>
+                <Link to="/fish/add" style={{textDecoration: "none"}}><button id="addFishBtn" className="btn btn-success btn-block rounded-0" style={{height: "6vh", backgroundColor: "#DB6C0F", borderWidth: "0"}}>New Fish</button></Link>
             </div>
             <div className="">
               <div className="content">
@@ -260,7 +260,7 @@ class App extends Component {
         <Route exact path="/fish/add" component={props => (
           <React.Fragment>
             <Header loggedInUser={this.state.user} logoutUser={this.logoutUser} />
-            <div className="content" style={{margin: "15px auto"}}>
+            <div className="content">
               <FishFieldEditor type="add" allFishNames={this.getAllFishNames()} getFishes={this.getFishes}/>
             </div>
             <Footer />
@@ -270,7 +270,7 @@ class App extends Component {
         <Route exact path="/fish/edit/:id" component={props => (
           <React.Fragment>
             <Header loggedInUser={this.state.user} logoutUser={this.logoutUser} />
-            <div className="content" style={{margin: "15px auto"}}>
+            <div className="content">
               <FishFieldEditor type="edit" fish={this.getFish(this.state.currFishId)} allFishNames={this.getAllFishNames()}/>
             </div>
             <Footer />

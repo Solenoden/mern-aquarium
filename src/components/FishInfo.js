@@ -4,14 +4,14 @@ import {Link} from "react-router-dom";
 export default class FishInfo extends Component {
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <div className="fishInfo-nameAndActions">
                     <h2 style={{ textAlign: "center", marginTop: "25px", fontSize: "2em"}}>{this.props.fish.name}</h2>
                     <h6 className="text-center" style={{margin: "5px 0 25px 0", fontSize: "1em"}}>{this.props.fish.fishType + " Fish"}</h6>
 
                     <div className="fishInfo-actionList">
-                        <Link to={"/fish/edit/" + this.props.fish._id}><button className="btn btn-info" style={{margin: "0px 15px 10px 0px", width: "80%"}}>Edit</button></Link>
-                        <button className="btn btn-danger" style={{margin: "0px 15px 0px 0px", width: "80%"}} onClick={this.props.deleteFish.bind(this, this.props.fish._id)}>Delete</button>
+                        <Link to={"/fish/edit/" + this.props.fish._id}><button className="btn btn-info" style={{margin: "0px 15px 10px 0px", width: "80%", backgroundColor: "#DB6C0F", borderWidth: "0"}}>Edit</button></Link>
+                        <button className="btn btn-danger" style={{margin: "0px 15px 0px 0px", width: "80%", backgroundColor: "#DB6C0F", borderWidth: "0"}} onClick={this.props.deleteFish.bind(this, this.props.fish._id)}>Delete</button>
                     </div>  
                 </div>
 
@@ -21,7 +21,7 @@ export default class FishInfo extends Component {
                         <p style={{fontSize: "1em", lineHeight: "1.75em", marginBottom: "25px"}}>{this.props.fish.description}</p>
                     </div>
                     <div>
-                        <div className="card bg-light mb-3 ">
+                        <div className="card mb-3 text-dark">
                             <div className="card-header">
                                 <h3 style={{fontSize: "1.5em"}}>Living Conditions</h3>
                             </div>
@@ -40,7 +40,7 @@ export default class FishInfo extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 

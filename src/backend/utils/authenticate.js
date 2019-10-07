@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const authenticate = (email, password) => {
     return new Promise((resolve, reject) => {
-        axios.get("/user/")
+        axios.get("http://localhost:5000/user/")
         .then((res) => {
             const user = res.data.find((user) => user.email === email);
             console.log(res.data);

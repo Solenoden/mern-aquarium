@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+
+const path = require("path");
 
 require("dotenv").config();
 
+const port= process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -25,12 +27,12 @@ app.use("/fish", fishRouter);
 const userRouter = require("./routes/users");
 app.use("/user", userRouter);
 
-if(process.env.NODE_ENV === "production") {
-    app.use("../../build");
+// Configure server to serve the static assets if in production
+if(process.env.NODE_ENV === 'production') {
+    console.log("In production mode");
+    app.use(express.static("../../build"));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "build", "index.html"));
-    });
+    app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "build", "index.html")));
 }
 
 //Configure server to run on a certain port

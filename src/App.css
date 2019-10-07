@@ -16,9 +16,9 @@ header, footer {
 }
  
 .content {
-    height: 86vh;
+    height: 88vh;
     overflow-y: auto;
-    /* background-color: #4d8794; */
+    /* background-image: linear-gradient(#F0E3C0, #8BADA3, #3B6670); */
 }
 
 .App {

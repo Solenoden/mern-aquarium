@@ -266,7 +266,7 @@ export default class FishFieldEditor extends Component {
     //Component render
     render() {
         return (
-            <div className="fishFieldEditor card bg-light" style={{margin: "0 auto 20px auto"}}>
+            <div className="fishFieldEditor card bg-light" style={{margin: "20px auto 20px auto"}}>
                 <div className="card-header">
                     <h3 className="text-center">{(this.props.type === "add") ? "Add a New Species": "Edit Species"}</h3>
                 </div>
